@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f0db2aa8a570959027d6be2a227028ad19fd9e8f
+        uses: step-security/harden-runner@951b48540b429070694bc8abd82fd6901eb123ca
         with:
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
 
@@ -44,7 +44,7 @@ jobs:
       - name: Invoke workflow for OLM (community-operators)
         if: always()
         continue-on-error: true
-        uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609
+        uses: benc-uk/workflow-dispatch@e2e5e9a103e331dad343f381a29e654aea3cf8fc
         with:
           workflow: olm_pr.yaml
           token: ${{ secrets.CR_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
       - name: Invoke workflow for OLM (community-operators-prod)
         if: always()
         continue-on-error: true
-        uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609
+        uses: benc-uk/workflow-dispatch@e2e5e9a103e331dad343f381a29e654aea3cf8fc
         with:
           workflow: olm_pr.yaml
           token: ${{ secrets.CR_TOKEN }}

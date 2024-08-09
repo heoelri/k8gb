@@ -28,7 +28,7 @@ jobs:
           should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@f0db2aa8a570959027d6be2a227028ad19fd9e8f
+      uses: step-security/harden-runner@951b48540b429070694bc8abd82fd6901eb123ca
       with:
         egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
 
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
       # see: https://golangci-lint.run/usage/configuration/#config-file
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@aaa42aa0628b4ae2578232a66b541047968fac86
+        uses: golangci/golangci-lint-action@e13590484647602042886c51e2a8e43a670a22b7
         with:
           version: v1.59.1
           skip-go-installation: true
