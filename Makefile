@@ -808,10 +808,13 @@ endef
 
 # Documentation with Mkdocs
 
-.PHONY: docs-list docs-deploy docs-deploy-master docs-deploy-last-3
+.PHONY: docs-list docs-deploy docs-deploy-master docs-deploy-last-3 docs-sync-blog
 
 docs-list: ## List deployed versions
 	mike list
+
+docs-sync-blog: ## Sync blog posts to all deployed documentation versions (requires GHPAGES_DIR)
+	@hack/docs-sync-blog.sh "$(GHPAGES_DIR)"
 
 docs-deploy: ## Deploy docs with mike for VERSION (requires VERSION)
 	@if [ -z "$(VERSION)" ]; then \
